@@ -126,6 +126,13 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
 
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none">
+      {/* Ambient theme glow overlays */}
+      <div
+        className="absolute inset-0 transition-colors duration-700"
+        style={{
+          background: `radial-gradient(ellipse at 30% 20%, ${themeColors[0]}15 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, ${themeColors[1]}10 0%, transparent 50%)`,
+        }}
+      />
       <Canvas
         camera={{ position: [0, 0, 20], fov: 60 }}
         dpr={[1, 1.5]}
@@ -142,7 +149,7 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
         <CameraRig mouse={mouse.current} scrollY={scrollY} />
       </Canvas>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/50 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50 pointer-events-none" />
     </div>
   );
 }

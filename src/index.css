@@ -227,11 +227,11 @@
   }
 
   .radial-glow-top {
-    background: radial-gradient(ellipse at top, hsl(270 70% 30% / 0.3), transparent 60%);
+    background: radial-gradient(ellipse at top, hsl(var(--primary) / 0.3), transparent 60%);
   }
 
   .radial-glow-center {
-    background: radial-gradient(circle at center, hsl(270 70% 30% / 0.2), transparent 50%);
+    background: radial-gradient(circle at center, hsl(var(--primary) / 0.2), transparent 50%);
   }
 }
 
