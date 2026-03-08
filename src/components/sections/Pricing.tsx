@@ -4,6 +4,19 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
+    name: "Portfolio",
+    tagline: "Personal portfolio site",
+    price: "$100",
+    timeline: "Delivered in 1 week",
+    features: [
+      "Custom personal portfolio",
+      "Responsive design",
+      "Project showcase section",
+      "Contact form",
+      "1 revision round",
+    ],
+  },
+  {
     name: "Launch",
     tagline: "For solo & small businesses",
     features: [
@@ -53,12 +66,18 @@ export default function Pricing() {
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {plans.map((plan) => (
             <StaggerItem key={plan.name}>
               <div className={`glass-card-hover p-8 h-full flex flex-col ${plan.featured ? "glow-border ring-1 ring-neon-purple/30" : ""}`}>
                 <h3 className="font-display font-bold text-xl">{plan.name}</h3>
-                <p className="text-sm text-muted-foreground mb-6">{plan.tagline}</p>
+                <p className="text-sm text-muted-foreground">{plan.tagline}</p>
+                {plan.price && (
+                  <div className="mt-3">
+                    <span className="text-2xl font-bold font-display glow-text">{plan.price}</span>
+                    <p className="text-xs text-muted-foreground mt-1">{plan.timeline}</p>
+                  </div>
+                )}
 
                 <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map((f) => (
