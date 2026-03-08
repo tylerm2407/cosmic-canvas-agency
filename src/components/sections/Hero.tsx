@@ -94,16 +94,23 @@ export default function Hero() {
               {businessCards.map((card) => (
                 <Card
                   key={card.title}
-                  className="w-[280px] sm:w-[320px] glass-card rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                  className="w-[280px] sm:w-[320px] glass-card rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
                   onClick={() => window.open(card.url, "_blank", "noopener,noreferrer")}
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${card.color} flex items-center justify-center mb-4`}>
-                    <ExternalLink className="w-5 h-5 text-white" />
+                  <div className="w-full h-[140px] sm:h-[160px] overflow-hidden border-b border-white/10">
+                    <img
+                      src={card.screenshot}
+                      alt={`${card.title} preview`}
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{card.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
-                  <div className="mt-4 text-xs text-neon-cyan font-medium tracking-wider flex items-center gap-1">
-                    Visit Site <ExternalLink className="w-3 h-3" />
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">{card.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{card.description}</p>
+                    <div className="mt-3 text-xs text-neon-cyan font-medium tracking-wider flex items-center gap-1">
+                      Visit Site <ExternalLink className="w-3 h-3" />
+                    </div>
                   </div>
                 </Card>
               ))}
