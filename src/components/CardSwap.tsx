@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, Children, cloneElement, isValidElement } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CardProps {
   children: React.ReactNode;
@@ -36,6 +37,10 @@ export default function CardSwap({
 
   const next = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % cards.length);
+  }, [cards.length]);
+
+  const prev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length);
   }, [cards.length]);
 
   useEffect(() => {
@@ -84,6 +89,22 @@ export default function CardSwap({
           </motion.div>
         );
       })}
+
+      {/* Navigation arrows */}
+      <button
+        onClick={(e) => { e.stopPropagation(); prev(); }}
+        className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 z-50 w-9 h-9 rounded-full glass-card flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-white/10 transition-all"
+        aria-label="Previous"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={(e) => { e.stopPropagation(); next(); }}
+        className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 z-50 w-9 h-9 rounded-full glass-card flex items-center justify-center text-foreground/70 hover:text-foreground hover:bg-white/10 transition-all"
+        aria-label="Next"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
 
       {/* Dots indicator */}
       <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
