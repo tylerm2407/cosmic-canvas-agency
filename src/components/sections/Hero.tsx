@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
 import { Sparkles, Play, ExternalLink } from "lucide-react";
 import CardSwap, { Card } from "@/components/CardSwap";
+import ShinyText from "@/components/ShinyText";
 
 const businessCards = [
   {
