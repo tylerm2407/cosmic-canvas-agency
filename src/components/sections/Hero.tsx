@@ -103,10 +103,10 @@ export default function Hero() {
             </AnimatedSection>
           </div>
 
-          <AnimatedSection delay={0.2} className="h-[400px] sm:h-[500px] lg:h-[550px]">
-            <CardSwap cardDistance={50} verticalDistance={60} delay={4000} pauseOnHover>
+          <div className="lg:col-span-1">
+            <ScrollStack>
               {businessCards.map((card) => (
-                <Card
+                <ScrollStackItem
                   key={card.title}
                   className="w-[280px] sm:w-[320px] glass-card rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
                   onClick={() => window.open(card.url, "_blank", "noopener,noreferrer")}
@@ -126,10 +126,10 @@ export default function Hero() {
                       Visit Site <ExternalLink className="w-3 h-3" />
                     </div>
                   </div>
-                </Card>
+                </ScrollStackItem>
               ))}
-            </CardSwap>
-          </AnimatedSection>
+            </ScrollStack>
+          </div>
         </div>
       </div>
     </section>
