@@ -4,6 +4,19 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
+    name: "Portfolio",
+    tagline: "Personal portfolio site",
+    price: "$100",
+    timeline: "Delivered in 1 week",
+    features: [
+      "Custom personal portfolio",
+      "Responsive design",
+      "Project showcase section",
+      "Contact form",
+      "1 revision round",
+    ],
+  },
+  {
     name: "Launch",
     tagline: "For solo & small businesses",
     features: [
