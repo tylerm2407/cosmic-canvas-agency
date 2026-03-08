@@ -52,6 +52,73 @@
     --font-display: 'Space Grotesk', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
   }
+
+  /* ── CYAN ── */
+  [data-theme="cyan"] {
+    --primary: 185 90% 55%;
+    --accent: 190 85% 50%;
+    --ring: 185 90% 55%;
+    --neon-purple: 185 90% 55%;
+    --neon-violet: 190 80% 50%;
+    --neon-blue: 200 85% 60%;
+    --neon-cyan: 175 90% 50%;
+    --neon-fuchsia: 195 70% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(185 90% 55%), hsl(200 85% 60%));
+    --gradient-glow: linear-gradient(135deg, hsl(185 90% 55% / 0.4), hsl(200 85% 60% / 0.2));
+    --gradient-cta: linear-gradient(135deg, hsl(185 90% 55%), hsl(195 70% 55%));
+  }
+
+  /* ── GREEN ── */
+  [data-theme="green"] {
+    --primary: 160 84% 39%;
+    --accent: 152 76% 44%;
+    --ring: 160 84% 39%;
+    --neon-purple: 160 84% 39%;
+    --neon-violet: 152 76% 44%;
+    --neon-blue: 170 80% 45%;
+    --neon-cyan: 145 80% 42%;
+    --neon-fuchsia: 155 70% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(152 76% 44%));
+    --gradient-glow: linear-gradient(135deg, hsl(160 84% 39% / 0.4), hsl(152 76% 44% / 0.2));
+    --gradient-cta: linear-gradient(135deg, hsl(160 84% 39%), hsl(145 80% 42%));
+  }
+
+  /* ── RED ── */
+  [data-theme="red"] {
+    --primary: 0 72% 51%;
+    --accent: 350 80% 55%;
+    --ring: 0 72% 51%;
+    --neon-purple: 0 72% 51%;
+    --neon-violet: 350 80% 55%;
+    --neon-blue: 10 75% 55%;
+    --neon-cyan: 340 75% 50%;
+    --neon-fuchsia: 355 70% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(0 72% 51%), hsl(350 80% 55%));
+    --gradient-glow: linear-gradient(135deg, hsl(0 72% 51% / 0.4), hsl(350 80% 55% / 0.2));
+    --gradient-cta: linear-gradient(135deg, hsl(0 72% 51%), hsl(340 75% 50%));
+  }
+
+  /* ── NAVY ── */
+  [data-theme="navy"] {
+    --primary: 217 91% 60%;
+    --accent: 224 76% 48%;
+    --ring: 217 91% 60%;
+    --neon-purple: 217 91% 60%;
+    --neon-violet: 224 76% 48%;
+    --neon-blue: 210 85% 55%;
+    --neon-cyan: 200 80% 55%;
+    --neon-fuchsia: 230 70% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(224 76% 48%));
+    --gradient-glow: linear-gradient(135deg, hsl(217 91% 60% / 0.4), hsl(224 76% 48% / 0.2));
+    --gradient-cta: linear-gradient(135deg, hsl(217 91% 60%), hsl(210 85% 55%));
+  }
+
+  /* ── PURPLE (default) ── */
+  [data-theme="purple"] {
+    --primary: 270 70% 50%;
+    --accent: 230 90% 65%;
+    --ring: 270 70% 50%;
+  }
 }
 
 @layer base {
