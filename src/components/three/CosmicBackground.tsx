@@ -7,7 +7,7 @@ type StarFieldProps = {
   mouse: { x: number; y: number };
 };
 
-function StarField({ scrollY, mouse }: StarFieldProps) {
+function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColors: [string, string, string] }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   const { positions, colors } = useMemo(() => {
@@ -15,8 +15,8 @@ function StarField({ scrollY, mouse }: StarFieldProps) {
     const positions = new Float32Array(starCount * 3);
     const colors = new Float32Array(starCount * 3);
 
-    const colorInside = new THREE.Color("#a855f7");
-    const colorOutside = new THREE.Color("#22d3ee");
+    const colorInside = new THREE.Color(themeColors[0]);
+    const colorOutside = new THREE.Color(themeColors[1]);
 
     for (let i = 0; i < starCount; i++) {
       const i3 = i * 3;
