@@ -68,8 +68,8 @@ export default function Hero() {
                 <ShinyText
                   text="Websites That Leave Your Customers Speechless"
                   speed={3}
-                  color="#b5b5b5"
-                  shineColor="#ffffff"
+                  color="#a855f7"
+                  shineColor="#e9d5ff"
                   spread={120}
                 />
               </h1>
