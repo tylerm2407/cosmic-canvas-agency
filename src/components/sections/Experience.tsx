@@ -1,6 +1,7 @@
 import { Suspense, lazy, useState } from "react";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
 import { Button } from "@/components/ui/button";
+import { GalaxyBackground } from "@/components/three/GalaxyBackground";
 
 const ExperienceScene = lazy(() => import("@/components/three/ExperienceScene"));
 
