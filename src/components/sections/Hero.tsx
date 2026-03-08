@@ -45,22 +45,22 @@ const businessCards = [
 
 export default function Hero() {
   return (
-    <>
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 radial-glow-top" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-neon-purple/5 blur-[120px]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="absolute inset-0 radial-glow-top" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-neon-purple/5 blur-[120px]" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
             <AnimatedSection>
-              <ShinyText
-                text="✨ Next-Gen Web Experiences for Local Brands"
-                speed={3}
-                color="hsl(var(--neon-cyan))"
-                shineColor="#ffffff"
-                spread={120}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase"
-              />
+                <ShinyText
+                  text="✨ Next-Gen Web Experiences for Local Brands"
+                  speed={3}
+                  color="hsl(var(--neon-cyan))"
+                  shineColor="#ffffff"
+                  spread={120}
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase"
+                />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
@@ -82,12 +82,12 @@ export default function Hero() {
                 color="#888888"
                 shineColor="#cccccc"
                 spread={120}
-                className="text-lg sm:text-xl max-w-lg mx-auto leading-relaxed"
+                className="text-lg sm:text-xl max-w-lg leading-relaxed"
               />
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-4">
                 <Button variant="neon" size="xl">
                   Get Your 3D Website
                 </Button>
@@ -102,36 +102,36 @@ export default function Hero() {
               </div>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
 
-      <ScrollStack>
-        {businessCards.map((card) => (
-          <ScrollStackItem
-            key={card.title}
-            className="w-full max-w-5xl glass-card rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.01]"
-            onClick={() => window.open(card.url, "_blank", "noopener,noreferrer")}
-          >
-            <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden border-b border-white/10">
-              <img
-                src={card.screenshot}
-                alt={`${card.title} preview`}
-                className="w-full h-full object-cover object-top"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-6 sm:p-8 flex items-center justify-between">
-              <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-1">{card.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{card.description}</p>
-              </div>
-              <div className="text-sm text-neon-cyan font-medium tracking-wider flex items-center gap-2 shrink-0">
-                Visit Site <ExternalLink className="w-4 h-4" />
-              </div>
-            </div>
-          </ScrollStackItem>
-        ))}
-      </ScrollStack>
-    </>
+          <div className="lg:col-span-1">
+            <ScrollStack>
+              {businessCards.map((card) => (
+                <ScrollStackItem
+                  key={card.title}
+                  className="w-[280px] sm:w-[320px] glass-card rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+                  onClick={() => window.open(card.url, "_blank", "noopener,noreferrer")}
+                >
+                  <div className="w-full h-[140px] sm:h-[160px] overflow-hidden border-b border-white/10">
+                    <img
+                      src={card.screenshot}
+                      alt={`${card.title} preview`}
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">{card.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{card.description}</p>
+                    <div className="mt-3 text-xs text-neon-cyan font-medium tracking-wider flex items-center gap-1">
+                      Visit Site <ExternalLink className="w-3 h-3" />
+                    </div>
+                  </div>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

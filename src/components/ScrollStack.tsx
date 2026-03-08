@@ -1,4 +1,4 @@
-import React, { useRef, Children, isValidElement } from "react";
+import React, { useRef, Children, isValidElement, cloneElement } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ScrollStackItemProps {
@@ -29,8 +29,8 @@ export default function ScrollStack({ children }: ScrollStackProps) {
   });
 
   return (
-    <div ref={containerRef} style={{ height: `${cards.length * 100}vh` }} className="relative">
-      <div className="sticky top-0 flex items-center justify-center overflow-hidden" style={{ height: "100vh" }}>
+    <div ref={containerRef} style={{ height: `${(cards.length + 1) * 40}vh` }} className="relative">
+      <div className="sticky top-24 flex items-center justify-center overflow-visible" style={{ height: "60vh" }}>
         {cards.map((card, index) => (
           <ScrollStackCard
             key={index}
@@ -54,37 +54,25 @@ interface ScrollStackCardProps {
 }
 
 function ScrollStackCard({ children, index, total, scrollYProgress }: ScrollStackCardProps) {
-  const cardProgress = 1 / total;
-  const start = index * cardProgress;
-  const activeAt = start + cardProgress * 0.3;
-  const end = (index + 1) * cardProgress;
+  const start = index / total;
+  const end = (index + 1) / total;
 
-  const y = useTransform(
-    scrollYProgress,
-    [start, activeAt, end],
-    ["100vh", "0vh", "0vh"]
-  );
-
-  const scale = useTransform(
-    scrollYProgress,
-    [activeAt, end, Math.min(end + cardProgress * 0.3, 1)],
-    [1, 1, index < total - 1 ? 0.92 : 1]
-  );
-
+  const y = useTransform(scrollYProgress, [start, end], [100 + index * 20, index * -8]);
+  const scale = useTransform(scrollYProgress, [start, end], [0.92, 1 - index * 0.03]);
   const opacity = useTransform(
     scrollYProgress,
-    [start, activeAt, end, Math.min(end + cardProgress * 0.2, 1)],
-    [0, 1, 1, index < total - 1 ? 0 : 1]
+    [start, Math.min(end + 0.1, 1), Math.min(end + 0.3, 1)],
+    [1, 1, index < total - 1 ? 0.6 : 1]
   );
 
   return (
     <motion.div
-      className="absolute inset-0 flex items-center justify-center px-4"
+      className="absolute w-full flex justify-center"
       style={{
         y,
         scale,
         opacity,
-        zIndex: index,
+        zIndex: total - index,
       }}
     >
       {children}
