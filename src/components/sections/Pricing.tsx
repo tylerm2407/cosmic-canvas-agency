@@ -78,7 +78,8 @@ export default function Pricing() {
                     <p className="text-xs text-muted-foreground mt-1">{plan.timeline}</p>
                   </div>
                 )}
-                <div className={plan.price ? "mt-4" : "mt-6"} />
+
+                <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
                       <Check className="w-4 h-4 text-neon-cyan shrink-0 mt-0.5" />
