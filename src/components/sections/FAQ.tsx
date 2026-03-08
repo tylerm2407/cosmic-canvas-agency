@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 const faqs = [
-  { q: "How long does a typical project take?", a: "Most projects launch within 4–8 weeks. Complex 3D experiences may take up to 12 weeks. We'll give you a detailed timeline after our discovery call." },
-  { q: "What's the typical cost range?", a: "Projects start in the low four figures for simple sites and go up for full 3D custom builds. We provide transparent proposals after understanding your needs." },
+  { q: "How long does a typical project take?", a: "All websites are delivered within 1–2 weeks. We'll give you a detailed timeline after our discovery call." },
+  { q: "What's the typical cost range?", a: "Our websites typically range between $500–$2,000 depending on complexity and features. We provide transparent proposals after understanding your needs." },
   { q: "Will the 3D elements slow down my website?", a: "Absolutely not. We use performance-optimized techniques like lazy loading, level-of-detail rendering, and code splitting to keep everything fast." },
   { q: "Do you handle SEO?", a: "Yes. Every site is built with SEO best practices: semantic HTML, fast load times, structured data, meta tags, and mobile-first design." },
   { q: "What about ongoing maintenance?", a: "All plans include post-launch support. We also offer ongoing retainers for continuous optimization, content updates, and new features." },
