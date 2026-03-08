@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
 import { Sparkles, Play, ExternalLink } from "lucide-react";
-import CardSwap, { Card } from "@/components/CardSwap";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import ShinyText from "@/components/ShinyText";
 
 const businessCards = [
