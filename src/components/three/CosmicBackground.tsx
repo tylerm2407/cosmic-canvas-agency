@@ -62,7 +62,7 @@ function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColo
   );
 }
 
-function NebulaFog() {
+function NebulaFog({ color }: { color: string }) {
   const mesh = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (!mesh.current) return;
@@ -73,7 +73,7 @@ function NebulaFog() {
   return (
     <mesh ref={mesh} position={[0, 0, -15]}>
       <planeGeometry args={[80, 80]} />
-      <meshBasicMaterial color="#7c3aed" transparent opacity={0.03} side={THREE.DoubleSide} />
+      <meshBasicMaterial color={color} transparent opacity={0.03} side={THREE.DoubleSide} />
     </mesh>
   );
 }
