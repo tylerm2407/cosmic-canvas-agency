@@ -147,7 +147,7 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
         style={{ background: "transparent" }}
       >
         <StarField scrollY={scrollY} mouse={mouse.current} themeColors={themeColors} />
-        <NebulaFog color={themeColors[0]} />
+        <NebulaFog color={themeColors[0]} color2={themeColors[1]} />
 
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.5} color={themeColors[0]} />
