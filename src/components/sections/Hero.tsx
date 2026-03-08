@@ -53,10 +53,14 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <AnimatedSection>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase glass-card text-neon-cyan border-neon-cyan/20">
-                <Sparkles className="w-3.5 h-3.5" />
-                Next-Gen Web Experiences for Local Brands
-              </span>
+                <ShinyText
+                  text="✨ Next-Gen Web Experiences for Local Brands"
+                  speed={3}
+                  color="hsl(var(--neon-cyan))"
+                  shineColor="#ffffff"
+                  spread={120}
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase"
+                />
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
