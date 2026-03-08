@@ -65,9 +65,7 @@ function GlowingArcs() {
         const pts = curve.getPoints(30);
         const geometry = new THREE.BufferGeometry().setFromPoints(pts);
         return (
-          <line key={i} geometry={geometry}>
-            <lineBasicMaterial color={arc.color} transparent opacity={0.5} />
-          </line>
+          <primitive key={i} object={new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: arc.color, transparent: true, opacity: 0.5 }))} />
         );
       })}
     </group>
