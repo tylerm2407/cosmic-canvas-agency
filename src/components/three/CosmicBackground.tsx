@@ -35,7 +35,7 @@ function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColo
     }
 
     return { positions, colors };
-  }, []);
+  }, [themeColors]);
 
   useFrame((state) => {
     if (!pointsRef.current) return;
