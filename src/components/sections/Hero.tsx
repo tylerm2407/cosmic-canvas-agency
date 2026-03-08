@@ -10,30 +10,35 @@ const businessCards = [
     description: "Smart cost analysis and financial clarity for businesses that demand precision.",
     url: "https://costclaritypro.com",
     color: "from-purple-600 to-violet-800",
+    screenshot: "/screenshots/costclaritypro.png",
   },
   {
     title: "MarketPulseTerminal",
     description: "Real-time market data and trading insights in a powerful terminal interface.",
     url: "https://marketpulseterminal.com",
     color: "from-indigo-600 to-cyan-700",
+    screenshot: "/screenshots/marketpulseterminal.png",
   },
   {
     title: "IncomeAIPro",
     description: "AI-powered income optimization and financial planning made effortless.",
     url: "https://incomeaipro.com",
     color: "from-fuchsia-600 to-pink-800",
+    screenshot: "/screenshots/incomeaipro.png",
   },
   {
     title: "PropFirmAnalytics",
     description: "Advanced analytics and performance tracking for proprietary trading firms.",
     url: "https://propfirmanalytics.com",
     color: "from-cyan-600 to-teal-800",
+    screenshot: "/screenshots/propfirmanalytics.png",
   },
   {
     title: "NovaWealthHQ",
     description: "Next-generation wealth management headquarters for modern investors.",
     url: "https://novawealthhq.com",
     color: "from-amber-500 to-orange-700",
+    screenshot: "/screenshots/novawealthhq.png",
   },
 ];
 
