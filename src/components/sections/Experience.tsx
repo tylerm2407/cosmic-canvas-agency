@@ -12,6 +12,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="section-spacing relative overflow-hidden">
+      <GalaxyBackground />
       <div className="absolute inset-0 radial-glow-top" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
