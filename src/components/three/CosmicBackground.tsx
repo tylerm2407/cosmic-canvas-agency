@@ -57,7 +57,7 @@ function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColo
         <bufferAttribute attach="attributes-position" args={[positions, 3]} count={positions.length / 3} />
         <bufferAttribute attach="attributes-color" args={[colors, 3]} count={colors.length / 3} />
       </bufferGeometry>
-      <pointsMaterial size={0.08} vertexColors transparent opacity={0.9} sizeAttenuation />
+      <pointsMaterial size={0.12} vertexColors transparent opacity={0.9} sizeAttenuation />
     </points>
   );
 }
