@@ -104,7 +104,7 @@ function CameraRig({
   return null;
 }
 
-export function CosmicBackground() {
+export function CosmicBackground({ themeColors }: { themeColors: [string, string, string] }) {
   const [scrollY, setScrollY] = React.useState(0);
   const mouse = React.useRef({ x: 0, y: 0 });
 
@@ -132,12 +132,12 @@ export function CosmicBackground() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >
-        <StarField scrollY={scrollY} mouse={mouse.current} />
-        <NebulaFog />
+        <StarField scrollY={scrollY} mouse={mouse.current} themeColors={themeColors} />
+        <NebulaFog color={themeColors[0]} />
 
         <ambientLight intensity={0.1} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} color="#a855f7" />
-        <pointLight position={[-10, -10, -5]} intensity={0.3} color="#22d3ee" />
+        <pointLight position={[10, 10, 10]} intensity={0.5} color={themeColors[0]} />
+        <pointLight position={[-10, -10, -5]} intensity={0.3} color={themeColors[1]} />
 
         <CameraRig mouse={mouse.current} scrollY={scrollY} />
       </Canvas>
