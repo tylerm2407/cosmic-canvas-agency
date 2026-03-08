@@ -7,7 +7,7 @@ type StarFieldProps = {
   mouse: { x: number; y: number };
 };
 
-function StarField({ scrollY, mouse }: StarFieldProps) {
+function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColors: [string, string, string] }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   const { positions, colors } = useMemo(() => {
@@ -15,8 +15,8 @@ function StarField({ scrollY, mouse }: StarFieldProps) {
     const positions = new Float32Array(starCount * 3);
     const colors = new Float32Array(starCount * 3);
 
-    const colorInside = new THREE.Color("#a855f7");
-    const colorOutside = new THREE.Color("#22d3ee");
+    const colorInside = new THREE.Color(themeColors[0]);
+    const colorOutside = new THREE.Color(themeColors[1]);
 
     for (let i = 0; i < starCount; i++) {
       const i3 = i * 3;
@@ -35,7 +35,7 @@ function StarField({ scrollY, mouse }: StarFieldProps) {
     }
 
     return { positions, colors };
-  }, []);
+  }, [themeColors]);
 
   useFrame((state) => {
     if (!pointsRef.current) return;
@@ -62,7 +62,7 @@ function StarField({ scrollY, mouse }: StarFieldProps) {
   );
 }
 
-function NebulaFog() {
+function NebulaFog({ color }: { color: string }) {
   const mesh = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (!mesh.current) return;
@@ -73,7 +73,7 @@ function NebulaFog() {
   return (
     <mesh ref={mesh} position={[0, 0, -15]}>
       <planeGeometry args={[80, 80]} />
-      <meshBasicMaterial color="#7c3aed" transparent opacity={0.03} side={THREE.DoubleSide} />
+      <meshBasicMaterial color={color} transparent opacity={0.03} side={THREE.DoubleSide} />
     </mesh>
   );
 }
@@ -104,7 +104,7 @@ function CameraRig({
   return null;
 }
 
-export function CosmicBackground() {
+export function CosmicBackground({ themeColors }: { themeColors: [string, string, string] }) {
   const [scrollY, setScrollY] = React.useState(0);
   const mouse = React.useRef({ x: 0, y: 0 });
 
@@ -132,12 +132,12 @@ export function CosmicBackground() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >
-        <StarField scrollY={scrollY} mouse={mouse.current} />
-        <NebulaFog />
+        <StarField scrollY={scrollY} mouse={mouse.current} themeColors={themeColors} />
+        <NebulaFog color={themeColors[0]} />
 
         <ambientLight intensity={0.1} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} color="#a855f7" />
-        <pointLight position={[-10, -10, -5]} intensity={0.3} color="#22d3ee" />
+        <pointLight position={[10, 10, 10]} intensity={0.5} color={themeColors[0]} />
+        <pointLight position={[-10, -10, -5]} intensity={0.3} color={themeColors[1]} />
 
         <CameraRig mouse={mouse.current} scrollY={scrollY} />
       </Canvas>

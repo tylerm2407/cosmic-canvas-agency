@@ -1,4 +1,5 @@
 import { Zap } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Work", href: "#experience" },
@@ -26,14 +27,20 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <ThemeToggle />
           </div>
 
-          <a
-            href="#contact"
-            className="btn-primary-glow text-primary-foreground font-display font-semibold text-sm px-5 py-2 rounded-lg"
-          >
-            Get Started
-          </a>
+          <div className="flex items-center gap-3">
+            <div className="sm:hidden">
+              <ThemeToggle />
+            </div>
+            <a
+              href="#contact"
+              className="btn-primary-glow text-primary-foreground font-display font-semibold text-sm px-5 py-2 rounded-lg"
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
     </nav>
