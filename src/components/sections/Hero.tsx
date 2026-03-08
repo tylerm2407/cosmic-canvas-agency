@@ -65,16 +65,25 @@ export default function Hero() {
 
             <AnimatedSection delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-[1.1] tracking-tight">
-                Websites That Leave Your Customers{" "}
-                <span className="glow-text">Speechless</span>
+                <ShinyText
+                  text="Websites That Leave Your Customers Speechless"
+                  speed={3}
+                  color="#b5b5b5"
+                  shineColor="#ffffff"
+                  spread={120}
+                />
               </h1>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-lg leading-relaxed">
-                We turn boring local business sites into interactive, immersive 3D experiences 
-                that make your brand unforgettable.
-              </p>
+              <ShinyText
+                text="We turn boring local business sites into interactive, immersive 3D experiences that make your brand unforgettable."
+                speed={4}
+                color="#888888"
+                shineColor="#cccccc"
+                spread={120}
+                className="text-lg sm:text-xl max-w-lg leading-relaxed"
+              />
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
