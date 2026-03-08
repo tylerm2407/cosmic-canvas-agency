@@ -57,24 +57,31 @@ function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColo
         <bufferAttribute attach="attributes-position" args={[positions, 3]} count={positions.length / 3} />
         <bufferAttribute attach="attributes-color" args={[colors, 3]} count={colors.length / 3} />
       </bufferGeometry>
-      <pointsMaterial size={0.08} vertexColors transparent opacity={0.9} sizeAttenuation />
+      <pointsMaterial size={0.12} vertexColors transparent opacity={0.9} sizeAttenuation />
     </points>
   );
 }
 
-function NebulaFog({ color }: { color: string }) {
+function NebulaFog({ color, color2 }: { color: string; color2: string }) {
   const mesh = useRef<THREE.Mesh>(null);
+  const mesh2 = useRef<THREE.Mesh>(null);
   useFrame((state) => {
-    if (!mesh.current) return;
     const t = state.clock.getElapsedTime();
-    mesh.current.rotation.z = t * 0.01;
+    if (mesh.current) mesh.current.rotation.z = t * 0.01;
+    if (mesh2.current) mesh2.current.rotation.z = -t * 0.008;
   });
 
   return (
-    <mesh ref={mesh} position={[0, 0, -15]}>
-      <planeGeometry args={[80, 80]} />
-      <meshBasicMaterial color={color} transparent opacity={0.03} side={THREE.DoubleSide} />
-    </mesh>
+    <>
+      <mesh ref={mesh} position={[0, 0, -15]}>
+        <planeGeometry args={[80, 80]} />
+        <meshBasicMaterial color={color} transparent opacity={0.08} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh ref={mesh2} position={[5, -5, -12]}>
+        <planeGeometry args={[60, 60]} />
+        <meshBasicMaterial color={color2} transparent opacity={0.05} side={THREE.DoubleSide} />
+      </mesh>
+    </>
   );
 }
 
@@ -126,6 +133,13 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
 
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none">
+      {/* Ambient theme glow overlays */}
+      <div
+        className="absolute inset-0 transition-colors duration-700"
+        style={{
+          background: `radial-gradient(ellipse at 30% 20%, ${themeColors[0]}15 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, ${themeColors[1]}10 0%, transparent 50%)`,
+        }}
+      />
       <Canvas
         camera={{ position: [0, 0, 20], fov: 60 }}
         dpr={[1, 1.5]}
@@ -133,7 +147,7 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
         style={{ background: "transparent" }}
       >
         <StarField scrollY={scrollY} mouse={mouse.current} themeColors={themeColors} />
-        <NebulaFog color={themeColors[0]} />
+        <NebulaFog color={themeColors[0]} color2={themeColors[1]} />
 
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.5} color={themeColors[0]} />
@@ -142,7 +156,7 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
         <CameraRig mouse={mouse.current} scrollY={scrollY} />
       </Canvas>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/50 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50 pointer-events-none" />
     </div>
   );
 }
