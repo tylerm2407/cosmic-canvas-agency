@@ -84,7 +84,6 @@ export default function Hero() {
                 spread={120}
                 className="text-lg sm:text-xl max-w-lg leading-relaxed"
               />
-              </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
