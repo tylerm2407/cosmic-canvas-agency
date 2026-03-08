@@ -66,14 +66,19 @@ export default function Pricing() {
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {plans.map((plan) => (
             <StaggerItem key={plan.name}>
               <div className={`glass-card-hover p-8 h-full flex flex-col ${plan.featured ? "glow-border ring-1 ring-neon-purple/30" : ""}`}>
                 <h3 className="font-display font-bold text-xl">{plan.name}</h3>
-                <p className="text-sm text-muted-foreground mb-6">{plan.tagline}</p>
-
-                <ul className="space-y-3 flex-1 mb-8">
+                <p className="text-sm text-muted-foreground">{plan.tagline}</p>
+                {plan.price && (
+                  <div className="mt-3">
+                    <span className="text-2xl font-bold font-display glow-text">{plan.price}</span>
+                    <p className="text-xs text-muted-foreground mt-1">{plan.timeline}</p>
+                  </div>
+                )}
+                <div className={plan.price ? "mt-4" : "mt-6"} />
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
                       <Check className="w-4 h-4 text-neon-cyan shrink-0 mt-0.5" />
