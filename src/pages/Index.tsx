@@ -2,7 +2,7 @@ import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import Gallery from "@/components/sections/Gallery";
-import Experience from "@/components/sections/Experience";
+
 import Results from "@/components/sections/Results";
 import Process from "@/components/sections/Process";
 import Pricing from "@/components/sections/Pricing";
