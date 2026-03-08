@@ -1,7 +1,7 @@
-import { Suspense, lazy } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
-import { Sparkles, Play, ExternalLink } from "lucide-react";
+import { Play, ExternalLink } from "lucide-react";
 import CardSwap, { Card } from "@/components/CardSwap";
 import ShinyText from "@/components/ShinyText";
 
@@ -43,7 +43,26 @@ const businessCards = [
   },
 ];
 
+function getComputedHSL(varName: string): string {
+  const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  return val ? `hsl(${val})` : "#a855f7";
+}
+
 export default function Hero() {
+  const [primaryColor, setPrimaryColor] = useState(() => getComputedHSL("--primary"));
+  const [cyanColor, setCyanColor] = useState(() => getComputedHSL("--neon-cyan"));
+
+  useEffect(() => {
+    const update = () => {
+      setPrimaryColor(getComputedHSL("--primary"));
+      setCyanColor(getComputedHSL("--neon-cyan"));
+    };
+    window.addEventListener("theme-change", update);
+    // also run once after mount to catch initial theme
+    requestAnimationFrame(update);
+    return () => window.removeEventListener("theme-change", update);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 radial-glow-top" />
@@ -56,7 +75,7 @@ export default function Hero() {
                 <ShinyText
                   text="✨ Next-Gen Web Experiences for Local Brands"
                   speed={3}
-                  color="hsl(var(--neon-cyan))"
+                  color={cyanColor}
                   shineColor="#ffffff"
                   spread={120}
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase"
@@ -66,10 +85,11 @@ export default function Hero() {
             <AnimatedSection delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-[1.1] tracking-tight">
                 <ShinyText
+                  key={primaryColor}
                   text="Websites That Leave Your Customers Speechless"
                   speed={3}
-                  color="#a855f7"
-                  shineColor="#e9d5ff"
+                  color={primaryColor}
+                  shineColor="#ffffff"
                   spread={120}
                 />
               </h1>
