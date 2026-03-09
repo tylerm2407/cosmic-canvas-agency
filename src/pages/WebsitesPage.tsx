@@ -3,15 +3,15 @@ import Navbar from "@/components/sections/Navbar";
 import Gallery from "@/components/sections/Gallery";
 import Experience from "@/components/sections/Experience";
 import Footer from "@/components/sections/Footer";
-import Threads from "@/components/Threads";
+import Plasma from "@/components/Plasma";
 import { getActiveTheme, type ThemeKey } from "@/components/ThemeToggle";
 
-const themeThreadColors: Record<ThemeKey, [number, number, number]> = {
-  purple: [0.69, 0.62, 0.94],
-  cyan: [0.33, 0.94, 0.97],
-  green: [0.2, 0.83, 0.6],
-  red: [0.97, 0.44, 0.44],
-  navy: [0.38, 0.65, 0.98],
+const themePlasmaColors: Record<ThemeKey, string> = {
+  purple: "#8b5cf6",
+  cyan: "#06b6d4",
+  green: "#34d399",
+  red: "#f87171",
+  navy: "#60a5fa",
 };
 
 const WebsitesPage = () => {
@@ -28,12 +28,14 @@ const WebsitesPage = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0">
-        <Threads
+        <Plasma
           key={theme}
-          color={themeThreadColors[theme]}
-          amplitude={1}
-          distance={0}
-          enableMouseInteraction
+          color={themePlasmaColors[theme]}
+          speed={0.6}
+          direction="forward"
+          scale={1.1}
+          opacity={0.8}
+          mouseInteractive
         />
       </div>
       <div className="noise-overlay" />
