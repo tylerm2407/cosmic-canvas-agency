@@ -47,6 +47,7 @@
         "lucide-react": "^0.462.0",
         "next-themes": "^0.3.0",
         "ogl": "^1.0.11",
+        "postprocessing": "^6.38.3",
         "react": "^18.3.1",
         "react-day-picker": "^8.10.1",
         "react-dom": "^18.3.1",
@@ -976,6 +977,8 @@
     "postcss-selector-parser": ["postcss-selector-parser@6.0.10", "", { "dependencies": { "cssesc": "^3.0.0", "util-deprecate": "^1.0.2" } }, "sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w=="],
 
     "postcss-value-parser": ["postcss-value-parser@4.2.0", "", {}, "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="],
+
+    "postprocessing": ["postprocessing@6.38.3", "", { "peerDependencies": { "three": ">= 0.157.0 < 0.184.0" } }, "sha512-5qCFp8j62nWL6sSVv/RKuHscQUIV+VMMgWeHLYZQEBpAk7G+r3jA3bSKON7gZjiuxdZ/F4PXj2Jc1oPh/7Eg+g=="],
 
     "potpack": ["potpack@1.0.2", "", {}, "sha512-choctRBIV9EMT9WGAZHn3V7t0Z2pMQyl0EZE6pFc/6ml3ssw7Dlf/oAOvFwjm1HVsqfQN8GfeFyJ+d8tRzqueQ=="],
 
