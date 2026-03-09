@@ -20,10 +20,10 @@ export default function Navbar() {
         items={navItems}
         activeHref={location.pathname}
         ease="power2.easeOut"
-        baseColor="#ffffff"
-        pillColor="#000000"
+        baseColor="#000000"
+        pillColor="#ffffff"
         hoveredPillTextColor="#000000"
-        pillTextColor="#ffffff"
+        pillTextColor="#000000"
         initialLoadAnimation={false}
       />
     </div>
