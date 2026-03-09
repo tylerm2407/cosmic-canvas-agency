@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import PillNav from "@/components/PillNav";
-import logo from "@/assets/logo.jpeg";
+
 
 const navItems = [
   { label: "Home", href: "/" },

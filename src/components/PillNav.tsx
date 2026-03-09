@@ -224,7 +224,7 @@ const PillNav: React.FC<PillNavProps> = ({
         aria-label="Primary"
         style={cssVars}
       >
-        {isRouterLink(items?.[0]?.href) ? (
+        {logo && (isRouterLink(items?.[0]?.href) ? (
           <Link
             to={items[0].href}
             aria-label="Home"
@@ -247,7 +247,7 @@ const PillNav: React.FC<PillNavProps> = ({
           >
             <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
           </a>
-        )}
+        ))}
 
         <div
           ref={navItemsRef}
