@@ -41,7 +41,7 @@ const WebsitesPage = () => {
       <Navbar />
       <main className="pt-16 relative z-10">
         <Gallery />
-        <Experience />
+        
       </main>
       <Footer />
     </div>
