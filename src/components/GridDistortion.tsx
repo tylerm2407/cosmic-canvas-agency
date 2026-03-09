@@ -125,6 +125,7 @@ export default function GridDistortion({
       data[i * 4 + 2] = 0;
       data[i * 4 + 3] = 1;
     }
+    dataArrayRef.current = data;
     const dataTexture = new THREE.DataTexture(data, size, size, THREE.RGBAFormat, THREE.FloatType);
     dataTexture.magFilter = THREE.NearestFilter;
     dataTexture.minFilter = THREE.NearestFilter;
