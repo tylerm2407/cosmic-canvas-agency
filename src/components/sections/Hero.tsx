@@ -107,7 +107,7 @@ export default function Hero() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button variant="neon" size="xl">
                   Get Your 3D Website
                 </Button>
