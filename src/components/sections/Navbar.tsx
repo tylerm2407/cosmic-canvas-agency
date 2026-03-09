@@ -15,8 +15,6 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 z-40 flex justify-center">
       <PillNav
-        logo={logo}
-        logoAlt="Dimension Logo"
         items={navItems}
         activeHref={location.pathname}
         ease="power2.easeOut"
