@@ -102,7 +102,7 @@ export default function Hero() {
                 color="#888888"
                 shineColor="#cccccc"
                 spread={120}
-                className="text-lg sm:text-xl max-w-lg leading-relaxed"
+                className="text-lg sm:text-xl max-w-lg leading-relaxed mx-auto"
               />
             </AnimatedSection>
 
