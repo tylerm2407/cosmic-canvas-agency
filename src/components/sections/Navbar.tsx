@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react";
+import { Zap, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -19,6 +19,13 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden sm:flex items-center gap-8">
+            <Link
+              to="/"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors font-display"
+              title="Home"
+            >
+              <Home className="w-4 h-4" />
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.label}
