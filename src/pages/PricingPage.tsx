@@ -44,7 +44,7 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen relative bg-black">
       {/* Hyperspeed Background */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-x-0 -top-[20vh] h-[80vh] z-0">
         <Hyperspeed effectOptions={effectOptions} />
       </div>
       <div className="noise-overlay" />
