@@ -175,8 +175,8 @@ export default function GridDistortion({
     const animate = () => {
       frameRef.current = requestAnimationFrame(animate);
 
-      if (dataTextureRef.current && materialRef.current) {
-        const data = dataTextureRef.current.image.data as Float32Array;
+      if (dataTextureRef.current && materialRef.current && dataArrayRef.current) {
+        const data = dataArrayRef.current;
         
         for (let i = 0; i < size; i++) {
           for (let j = 0; j < size; j++) {
