@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/sections/Navbar";
 import Gallery from "@/components/sections/Gallery";
-import Experience from "@/components/sections/Experience";
 import Footer from "@/components/sections/Footer";
 import Plasma from "@/components/Plasma";
 import { getActiveTheme, type ThemeKey } from "@/components/ThemeToggle";
@@ -42,7 +41,7 @@ const WebsitesPage = () => {
       <Navbar />
       <main className="pt-16 relative z-10">
         <Gallery />
-        <Experience />
+        
       </main>
       <Footer />
     </div>
