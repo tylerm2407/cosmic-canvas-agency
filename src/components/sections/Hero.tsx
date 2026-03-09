@@ -70,7 +70,7 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+          <div className="space-y-8 text-center">
             <AnimatedSection>
                 <ShinyText
                   text="✨ Next-Gen Web Experiences for Local Brands"
@@ -102,12 +102,12 @@ export default function Hero() {
                 color="#888888"
                 shineColor="#cccccc"
                 spread={120}
-                className="text-lg sm:text-xl max-w-lg leading-relaxed"
+                className="text-lg sm:text-xl max-w-lg leading-relaxed mx-auto"
               />
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button variant="neon" size="xl">
                   Get Your 3D Website
                 </Button>
