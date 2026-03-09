@@ -1,6 +1,7 @@
-import { Zap, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
+import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
   { label: "Websites", to: "/websites" },
