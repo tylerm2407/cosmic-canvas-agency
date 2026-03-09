@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="backdrop-blur-xl bg-background/60">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-            <Zap className="w-5 h-5 text-neon-purple" />
+            <img src={logo} alt="Dimension logo" className="w-8 h-8 rounded-full object-cover" />
             <span>Dimension</span>
           </Link>
 
