@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/sections/Navbar";
-import Hero from "@/components/sections/Hero";
-import Results from "@/components/sections/Results";
-import WebsitePreview from "@/components/sections/WebsitePreview";
-import FAQ from "@/components/sections/FAQ";
+import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import { CosmicBackground } from "@/components/three/CosmicBackground";
 import { getActiveTheme, themeBackgroundColors, type ThemeKey } from "@/components/ThemeToggle";
 
-const Index = () => {
+const ContactPage = () => {
   const [theme, setTheme] = useState<ThemeKey>(getActiveTheme);
 
   useEffect(() => {
@@ -25,14 +22,11 @@ const Index = () => {
       <div className="noise-overlay" />
       <Navbar />
       <main className="pt-16">
-        <Hero />
-        <Results />
-        <WebsitePreview />
-        <FAQ />
+        <Contact />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ContactPage;
