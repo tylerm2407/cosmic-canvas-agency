@@ -616,7 +616,9 @@ class LightsSticks {
   init() {
     const options = this.options;
     const geometry = new THREE.PlaneGeometry(1, 1);
-    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as unknown as THREE.BufferGeometry) as THREE.InstancedBufferGeometry;
+    const instanced = new THREE.InstancedBufferGeometry();
+    instanced.index = geometry.index;
+    instanced.attributes = geometry.attributes;
     const totalSticks = options.totalSideLightSticks;
     instanced.instanceCount = totalSticks;
 
