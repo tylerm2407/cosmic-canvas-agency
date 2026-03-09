@@ -1,57 +1,31 @@
-import { Home } from "lucide-react";
-import { Link } from "react-router-dom";
-import ThemeToggle from "@/components/ThemeToggle";
+import { useLocation } from "react-router-dom";
+import PillNav from "@/components/PillNav";
 import logo from "@/assets/logo.jpeg";
 
-const navLinks = [
-  { label: "Websites", to: "/websites" },
-  { label: "Pricing", to: "/pricing" },
-  { label: "Contact", to: "/contact" },
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Websites", href: "/websites" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
+  const location = useLocation();
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 border-b border-border/20">
-      <div className="backdrop-blur-xl bg-background/60">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
-            <img src={logo} alt="Dimension logo" className="w-8 h-8 rounded-full object-cover" />
-            <span>Dimension</span>
-          </Link>
-
-          <div className="hidden sm:flex items-center gap-8">
-            <Link
-              to="/"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors font-display"
-              title="Home"
-            >
-              <Home className="w-4 h-4" />
-            </Link>
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                to={link.to}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors font-display"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <ThemeToggle />
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="sm:hidden">
-              <ThemeToggle />
-            </div>
-            <Link
-              to="/contact"
-              className="btn-primary-glow text-primary-foreground font-display font-semibold text-sm px-5 py-2 rounded-lg"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <div className="fixed top-0 left-0 right-0 z-40 flex justify-center">
+      <PillNav
+        logo={logo}
+        logoAlt="Dimension Logo"
+        items={navItems}
+        activeHref={location.pathname}
+        ease="power2.easeOut"
+        baseColor="#000000"
+        pillColor="#ffffff"
+        hoveredPillTextColor="#ffffff"
+        pillTextColor="#000000"
+        initialLoadAnimation={false}
+      />
+    </div>
   );
 }
