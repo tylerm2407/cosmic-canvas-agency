@@ -18,6 +18,7 @@ const App = () => (
         <div className="relative z-10">
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
