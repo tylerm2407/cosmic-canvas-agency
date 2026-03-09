@@ -50,6 +50,7 @@ export default function GridDistortion({
   const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
   const materialRef = useRef<THREE.ShaderMaterial | null>(null);
   const dataTextureRef = useRef<THREE.DataTexture | null>(null);
+  const dataArrayRef = useRef<Float32Array | null>(null);
   const mouseRef = useRef({ x: 0, y: 0, prevX: 0, prevY: 0 });
   const frameRef = useRef<number>(0);
 
