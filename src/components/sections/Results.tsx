@@ -1,27 +1,27 @@
 import { StaggerContainer, StaggerItem } from "@/components/animations/AnimatedSection";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
-import { Target, Cpu, Search, HeadphonesIcon } from "lucide-react";
+import { Target, Cpu, Search, ShieldCheck } from "lucide-react";
 
 const features = [
   {
     icon: Target,
-    title: "Designed to Convert Local Traffic",
-    description: "Every element is optimized to turn local visitors into paying customers. From CTAs to micro-interactions, it's built for results.",
+    title: "Built to Convert, Not Just Look Good",
+    description: "Every section, CTA, and layout decision is designed to turn visitors into leads. Beautiful design means nothing without results.",
   },
   {
     icon: Cpu,
-    title: "3D Experiences Without the Tech Headache",
-    description: "We handle all the complex 3D development. You get a stunning, interactive site without touching a line of code.",
+    title: "Modern Tech, No Templates",
+    description: "We build with React, Next.js, and cutting-edge tools — not drag-and-drop builders. Your site will outperform the competition technically.",
   },
   {
     icon: Search,
-    title: "SEO-Ready, Fast, and Responsive",
-    description: "Lightning-fast load times, mobile-first design, and SEO best practices baked in from day one.",
+    title: "SEO-Ready From Day One",
+    description: "Fast load times, mobile-first design, semantic markup, and structured data. Google-friendly by default, not as an afterthought.",
   },
   {
-    icon: HeadphonesIcon,
-    title: "Ongoing Support & Updates",
-    description: "Your site evolves with your business. We provide continuous optimization, updates, and dedicated support.",
+    icon: ShieldCheck,
+    title: "Ongoing Support You Can Count On",
+    description: "Every project includes post-launch support. We're a long-term partner, not a one-and-done shop. Your site grows as your business does.",
   },
 ];
 
@@ -32,8 +32,11 @@ export default function Results() {
         <AnimatedSection className="text-center mb-16">
           <p className="text-sm text-neon-cyan uppercase tracking-widest font-display mb-4">Why Us</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display">
-            Results & <span className="glow-text">Benefits</span>
+            Everything Your Business <span className="glow-text">Needs to Win Online</span>
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
+            We don't just build websites. We build the competitive edge your business deserves.
+          </p>
         </AnimatedSection>
 
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

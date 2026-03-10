@@ -19,6 +19,8 @@ const plans = [
   {
     name: "Launch",
     tagline: "For solo & small businesses",
+    price: "From $499",
+    timeline: "Delivered in 1–2 weeks",
     features: [
       "Custom responsive website",
       "Conversion-optimized pages",
@@ -30,6 +32,8 @@ const plans = [
   {
     name: "Growth",
     tagline: "For growing local brands",
+    price: "From $999",
+    timeline: "Delivered in 2 weeks",
     features: [
       "Everything in Launch",
       "Interactive animations & transitions",
@@ -40,8 +44,10 @@ const plans = [
     featured: true,
   },
   {
-    name: "Signature 3D Experience",
-    tagline: "Premium full custom 3D build",
+    name: "Signature 3D",
+    tagline: "Premium immersive build",
+    price: "From $1,999",
+    timeline: "Delivered in 2–3 weeks",
     features: [
       "Everything in Growth",
       "Custom 3D hero experience",
@@ -72,12 +78,10 @@ export default function Pricing() {
               <div className={`glass-card-hover p-8 h-full flex flex-col ${plan.featured ? "glow-border ring-1 ring-neon-purple/30" : ""}`}>
                 <h3 className="font-display font-bold text-xl">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground">{plan.tagline}</p>
-                {plan.price && (
-                  <div className="mt-3">
-                    <span className="text-2xl font-bold font-display glow-text">{plan.price}</span>
-                    <p className="text-xs text-muted-foreground mt-1">{plan.timeline}</p>
-                  </div>
-                )}
+                <div className="mt-4 mb-6">
+                  <span className="text-2xl font-bold font-display glow-text">{plan.price}</span>
+                  <p className="text-xs text-muted-foreground mt-1">{plan.timeline}</p>
+                </div>
 
                 <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map((f) => (

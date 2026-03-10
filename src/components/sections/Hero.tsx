@@ -73,7 +73,7 @@ export default function Hero() {
           <div className="space-y-8 text-center">
             <AnimatedSection>
                 <ShinyText
-                  text="✨ Next-Gen Web Experiences for Local Brands"
+                  text="🚀 Website Design & Development for Small Businesses"
                   speed={3}
                   color={cyanColor}
                   shineColor="#ffffff"
@@ -86,7 +86,7 @@ export default function Hero() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display leading-[1.1] tracking-tight">
                 <ShinyText
                   key={primaryColor}
-                  text="Websites That Leave Your Customers Speechless"
+                  text="Websites That Win Customers Before You Say a Word"
                   speed={3}
                   color={primaryColor}
                   shineColor="#ffffff"
@@ -97,7 +97,7 @@ export default function Hero() {
 
             <AnimatedSection delay={0.2}>
               <ShinyText
-                text="We turn boring local business sites into interactive, immersive 3D experiences that make your brand unforgettable."
+                text="We build high-performance, custom websites for local businesses that need more than a template — sites that look impressive, load fast, and actually drive results."
                 speed={4}
                 color="#888888"
                 shineColor="#cccccc"
@@ -109,16 +109,31 @@ export default function Hero() {
             <AnimatedSection delay={0.3}>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button variant="neon" size="xl">
-                  Get Your 3D Website
+                  Get Your Free Quote
                 </Button>
                 <Button
                   variant="neon-outline"
                   size="xl"
-                  onClick={() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => document.getElementById("process")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   <Play className="w-4 h-4" />
-                  See Live Demo
+                  See How It Works
                 </Button>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.4}>
+              <div className="flex flex-wrap justify-center gap-8 pt-2">
+                {[
+                  { value: "50+", label: "Projects Delivered" },
+                  { value: "1–2 wks", label: "Average Delivery" },
+                  { value: "100%", label: "Client Satisfaction" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <p className="text-xl font-bold font-display glow-text">{stat.value}</p>
+                    <p className="text-xs text-muted-foreground tracking-wide">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </AnimatedSection>
           </div>

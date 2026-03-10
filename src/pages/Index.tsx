@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
+import TrustBar from "@/components/sections/TrustBar";
 import Results from "@/components/sections/Results";
+import Process from "@/components/sections/Process";
 import WebsitePreview from "@/components/sections/WebsitePreview";
+import Testimonials from "@/components/sections/Testimonials";
+import CTABanner from "@/components/sections/CTABanner";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 import Galaxy from "@/components/Galaxy";
@@ -50,8 +54,12 @@ const Index = () => {
       <Navbar />
       <main className="pt-16 relative z-10">
         <Hero />
+        <TrustBar />
         <Results />
+        <Process />
         <WebsitePreview />
+        <Testimonials />
+        <CTABanner />
         <FAQ />
       </main>
       <Footer />

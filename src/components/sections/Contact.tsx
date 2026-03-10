@@ -86,10 +86,11 @@ export default function Contact() {
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
               >
                 <option value="">Select a range...</option>
-                <option value="3k-5k">$3,000 – $5,000</option>
-                <option value="5k-10k">$5,000 – $10,000</option>
-                <option value="10k-20k">$10,000 – $20,000</option>
-                <option value="20k+">$20,000+</option>
+                <option value="under-500">Under $500</option>
+                <option value="500-1500">$500 – $1,500</option>
+                <option value="1500-3000">$1,500 – $3,000</option>
+                <option value="3000-5000">$3,000 – $5,000</option>
+                <option value="5000+">$5,000+</option>
               </select>
             </div>
 
