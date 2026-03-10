@@ -13,8 +13,8 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-40 flex items-start justify-center gap-2 pointer-events-none">
-      <div className="pointer-events-auto">
+    <div className="fixed top-0 left-0 right-0 z-40 flex items-center justify-center pointer-events-none">
+      <div className="pointer-events-auto flex items-center gap-0 mt-[1em]">
         <PillNav
           items={navItems}
           activeHref={location.pathname}
@@ -25,9 +25,9 @@ export default function Navbar() {
           pillTextColor="#000000"
           initialLoadAnimation={false}
         />
-      </div>
-      <div className="pointer-events-auto mt-[1em] bg-black/80 backdrop-blur-sm rounded-full px-3 py-2 hidden md:flex">
-        <ThemeToggle />
+        <div className="bg-black/80 backdrop-blur-sm rounded-full p-2 ml-1 cursor-pointer">
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   );
