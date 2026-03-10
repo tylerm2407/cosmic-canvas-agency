@@ -52,11 +52,10 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={cycle}
-      className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors font-display"
+      className="flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
       title={`Theme: ${themes.find((t) => t.key === current)?.label}`}
     >
       <Palette className="w-4 h-4" />
-      <span className="hidden sm:inline">Theme</span>
     </button>
   );
 }
