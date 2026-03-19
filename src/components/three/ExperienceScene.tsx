@@ -2,6 +2,7 @@ import { useRef, useState, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
+import { CinematicEffects } from "./CinematicEffects";
 
 const themes: Record<string, { color: string; accent: string; label: string }> = {
   Restaurant: { color: "#7c3aed", accent: "#c084fc", label: "Restaurant" },
@@ -124,6 +125,7 @@ export default function ExperienceScene({ activeTheme }: ExperienceSceneProps) {
         style={{ background: "transparent" }}
       >
         <Scene activeTheme={activeTheme} />
+        <CinematicEffects />
       </Canvas>
     </div>
   );

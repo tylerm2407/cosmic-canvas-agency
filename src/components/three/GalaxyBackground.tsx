@@ -2,6 +2,7 @@ import React, { useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import { CinematicEffects } from './CinematicEffects';
 
 type GalaxyPointsProps = {
   count?: number;
@@ -94,6 +95,7 @@ export const GalaxyBackground: React.FC = () => {
         <ambientLight intensity={0.1} />
         <GalaxyPoints />
         <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.3} />
+        <CinematicEffects />
       </Canvas>
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/80 pointer-events-none" />
     </div>

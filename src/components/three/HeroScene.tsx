@@ -1,8 +1,9 @@
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, OrbitControls } from "@react-three/drei";
+import { Float, OrbitControls, MeshDistortMaterial, Environment } from "@react-three/drei";
 import * as THREE from "three";
 import { getActiveTheme, themeBackgroundColors } from "@/components/ThemeToggle";
+import { CinematicEffects } from "./CinematicEffects";
 
 function useThemeColors() {
   const [colors, setColors] = useState(() => themeBackgroundColors[getActiveTheme()]);
@@ -16,22 +17,29 @@ function useThemeColors() {
   return colors;
 }
 
-function GlobeWireframe({ color1, color2 }: { color1: string; color2: string }) {
-  const groupRef = useRef<THREE.Group>(null);
+function DistortedSphere({ color }: { color: string }) {
+  const meshRef = useRef<THREE.Mesh>(null);
   useFrame((_, delta) => {
-    if (groupRef.current) groupRef.current.rotation.y += delta * 0.15;
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta * 0.1;
+    }
   });
+
   return (
-    <group ref={groupRef}>
-      <mesh>
-        <sphereGeometry args={[2, 32, 32]} />
-        <meshBasicMaterial color={color1} wireframe transparent opacity={0.12} />
+    <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.5}>
+      <mesh ref={meshRef} scale={2}>
+        <icosahedronGeometry args={[1, 4]} />
+        <MeshDistortMaterial
+          color={color}
+          roughness={0.1}
+          metalness={0.9}
+          distort={0.3}
+          speed={2}
+          emissive={color}
+          emissiveIntensity={0.3}
+        />
       </mesh>
-      <mesh>
-        <sphereGeometry args={[2.02, 16, 16]} />
-        <meshBasicMaterial color={color2} wireframe transparent opacity={0.06} />
-      </mesh>
-    </group>
+    </Float>
   );
 }
 
@@ -117,7 +125,7 @@ export default function HeroScene() {
         <pointLight position={[5, 5, 5]} intensity={0.8} color={themeColors[0]} />
         <pointLight position={[-5, -3, 3]} intensity={0.5} color={themeColors[1]} />
 
-        <GlobeWireframe color1={themeColors[0]} color2={themeColors[1]} />
+        <DistortedSphere color={themeColors[0]} />
         <GlowingArcs themeColors={themeColors} />
         <AmbientOrbs themeColors={themeColors} />
 
@@ -125,6 +133,8 @@ export default function HeroScene() {
         <FloatingCard position={[-2.5, -1, 1]} label="Gym" color={themeColors[1]} />
         <FloatingCard position={[2, -1.8, 0.8]} label="Salon" color={themeColors[2]} />
         <FloatingCard position={[-2.8, 1.8, 0.3]} label="Real Estate" color={themeColors[0]} />
+
+        <Environment preset="city" />
 
         <OrbitControls
           enableZoom={false}
@@ -134,6 +144,8 @@ export default function HeroScene() {
           maxPolarAngle={Math.PI / 1.5}
           minPolarAngle={Math.PI / 3}
         />
+
+        <CinematicEffects />
       </Canvas>
     </div>
   );

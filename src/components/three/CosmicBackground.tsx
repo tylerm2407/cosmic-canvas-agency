@@ -1,13 +1,17 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useEffect } from "react";
 import * as THREE from "three";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CinematicEffects } from "./CinematicEffects";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type StarFieldProps = {
-  scrollY: number;
   mouse: { x: number; y: number };
 };
 
-function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColors: [string, string, string] }) {
+function StarField({ mouse, themeColors }: StarFieldProps & { themeColors: [string, string, string] }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   const { positions, colors } = useMemo(() => {
@@ -46,9 +50,6 @@ function StarField({ scrollY, mouse, themeColors }: StarFieldProps & { themeColo
     const parallaxY = mouse.y * 0.1;
     pointsRef.current.rotation.x = -parallaxY;
     pointsRef.current.rotation.z = parallaxX;
-
-    const scrollFactor = scrollY * 0.0008;
-    pointsRef.current.position.z = scrollFactor * 60;
   });
 
   return (
@@ -85,25 +86,38 @@ function NebulaFog({ color, color2 }: { color: string; color2: string }) {
   );
 }
 
-function CameraRig({
-  mouse,
-  scrollY,
-}: {
-  mouse: { x: number; y: number };
-  scrollY: number;
-}) {
+function ScrollCamera({ mouse }: { mouse: { x: number; y: number } }) {
   const { camera } = useThree();
+  const scrollProgress = useRef({ value: 0 });
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(scrollProgress.current, {
+        value: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.5,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   useFrame(() => {
-    const baseZ = 20;
-    const scrollZ = scrollY * 0.0005 * 40;
+    const p = scrollProgress.current.value;
 
+    // Scroll: camera moves from [0, 0, 20] to [0, -5, 12]
     const targetX = mouse.x * 2;
-    const targetY = -mouse.y * 2;
+    const targetY = -mouse.y * 2 + p * -5;
+    const targetZ = 20 - p * 8;
 
     camera.position.x += (targetX - camera.position.x) * 0.05;
     camera.position.y += (targetY - camera.position.y) * 0.05;
-    camera.position.z += (baseZ + scrollZ - camera.position.z) * 0.05;
+    camera.position.z += (targetZ - camera.position.z) * 0.05;
 
     camera.lookAt(0, 0, 0);
   });
@@ -112,14 +126,7 @@ function CameraRig({
 }
 
 export function CosmicBackground({ themeColors }: { themeColors: [string, string, string] }) {
-  const [scrollY, setScrollY] = React.useState(0);
   const mouse = React.useRef({ x: 0, y: 0 });
-
-  React.useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY || window.pageYOffset);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   React.useEffect(() => {
     const onMouseMove = (event: MouseEvent) => {
@@ -146,14 +153,15 @@ export function CosmicBackground({ themeColors }: { themeColors: [string, string
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >
-        <StarField scrollY={scrollY} mouse={mouse.current} themeColors={themeColors} />
+        <StarField mouse={mouse.current} themeColors={themeColors} />
         <NebulaFog color={themeColors[0]} color2={themeColors[1]} />
 
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.5} color={themeColors[0]} />
         <pointLight position={[-10, -10, -5]} intensity={0.3} color={themeColors[1]} />
 
-        <CameraRig mouse={mouse.current} scrollY={scrollY} />
+        <ScrollCamera mouse={mouse.current} />
+        <CinematicEffects />
       </Canvas>
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50 pointer-events-none" />
