@@ -9,7 +9,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
-import Galaxy from "@/components/Galaxy";
+import SoftAurora from "@/components/SoftAurora";
 import { getActiveTheme, type ThemeKey } from "@/components/ThemeToggle";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -17,12 +17,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const themeHueShifts: Record<ThemeKey, number> = {
-  purple: 270,
-  cyan: 180,
-  green: 140,
-  red: 0,
-  navy: 220,
+const themeAuroraColors: Record<ThemeKey, { color1: string; color2: string }> = {
+  purple: { color1: "#B19EEF", color2: "#5227FF" },
+  cyan: { color1: "#87f0f7", color2: "#2F4BC0" },
+  green: { color1: "#34d399", color2: "#065f46" },
+  red: { color1: "#f87171", color2: "#991b1b" },
+  navy: { color1: "#60a5fa", color2: "#1e3a8a" },
 };
 
 const Index = () => {
@@ -55,23 +55,27 @@ const Index = () => {
     };
   }, []);
 
+  const { color1, color2 } = themeAuroraColors[theme];
+
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0">
-        <Galaxy
+        <SoftAurora
           key={theme}
-          mouseRepulsion
-          mouseInteraction
-          density={1}
-          glowIntensity={0.3}
-          saturation={0}
-          hueShift={themeHueShifts[theme]}
-          twinkleIntensity={0.3}
-          rotationSpeed={0.1}
-          repulsionStrength={2}
-          autoCenterRepulsion={0}
-          starSpeed={0.5}
-          speed={1}
+          speed={0.6}
+          scale={1.5}
+          brightness={1}
+          color1={color1}
+          color2={color2}
+          noiseFrequency={2.5}
+          noiseAmplitude={1}
+          bandHeight={0.5}
+          bandSpread={1}
+          octaveDecay={0.1}
+          layerOffset={0}
+          colorSpeed={1}
+          enableMouseInteraction
+          mouseInfluence={0.25}
         />
       </div>
       <div className="noise-overlay" />
